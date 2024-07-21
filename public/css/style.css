@@ -1,0 +1,171 @@
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+.navbar {
+    background-color: #343a40;
+}
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    font-family: 'Montserrat', sans-serif;
+}
+.header {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+    background-image: url('/img/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.header p {
+    font-size: 1.2em;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.4rem;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.about {
+    padding: 60px 0;
+}
+.about img {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.about .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.about .content .text {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 1.4rem;
+}
+.skills, .projects, .contact {
+    padding: 60px 0;
+}
+.skills ul, .projects ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.skills ul li, .projects ul li {
+    background-color: #fff;
+    margin: 10px;
+    padding: 15px;
+     text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1 0 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+.skills ul li .icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.progress {
+    height: 10px;
+    margin-top: 8px;
+}
+
+.contact form .form-control {
+    margin-bottom: 15px;
+}
+.btn-custom {
+    background-color: #28a745;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+footer a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.progress {
+    height: 10px;
+    margin-top: 8px;
+    overflow: hidden; /* Ukrycie nadmiarowych części paska postępu */
+    background-color: #f8f9fa; /* Kolor tła paska postępu */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+}
+.progress .progress-bar {
+    transition: width 1s ease-in-out; /* Animacja zmiany szerokości */
+}
+.progress.hover .progress-bar {
+    transition: none; /* Anulowanie standardowej animacji dla elementów z klasą hover */
+}
+
+
+.projects {
+padding: 80px 0;
+}
+
+.project-item {
+position: relative;
+overflow: hidden; /* Ukrycie nadmiarowych części obrazka */
+aspect-ratio: 1; /* Utrzymanie proporcji kwadratu */
+border: 2px solid #fff; /* Ramka biała */
+transition: border-color 0.5s ease-in-out; /* Animacja zmiany koloru ramki */
+}
+
+.project-item:hover {
+border-color: #ccc; /* Zmiana koloru ramki po najechaniu kursorem */
+}
+
+.project-image {
+width: 100%;
+height: auto; /* Automatyczna wysokość obrazka */
+transition: transform 1.5s ease-in-out; /* Animacja transformacji */
+}
+
+.project-item .project-image:hover {
+transform: translateY(-100%); /* Przesunięcie obrazka w dół o 50% jego wysokości po najechaniu kursorem */
+
+}
+.project-text {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+padding: 10px;
+margin: 0;
+background-color: rgba(0, 0, 0, 0.8); /* Przezroczyste tło */
+color: #fff; /* Kolor tekstu */
+transform: translateY(100%); /* Początkowe ukrycie tekstu na dole */
+transition: transform 1s ease-in-out; /* Animacja transformacji */
+}
+
+.project-item:hover .project-text {
+transform: translateY(0); /* Przesunięcie tekstu do góry po najechaniu kursorem */
+}
+.link{
+color:#282828;
+text-decoration: none;
+}
+.link:hover{
+color: #28a745;
+}
+
