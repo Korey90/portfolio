@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image')->nullable();
-            $table->decimal('price', 8, 2);
+            $table->decimal('min_price', 8, 2);
+            $table->decimal('max_price', 8, 2);
             $table->timestamps();
         });
     }

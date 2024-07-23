@@ -69,18 +69,21 @@
             </div>
         </section>
 
-        <section id="services" class="services">
+        <section id="services" class="services py-5">
             <div class="container">
-                <h2 class="section-title">Usługi</h2>
-                <div class="row g-2">
+                <h2 class="section-title py-3">Usługi</h2>
+                <div class="row row-cols-3 g-2">
                     @forelse($services as $service)
-                        <div class="w-50">
-                            <div class="">
+                        <div class="col mb-4">
+                            <div class="text-center px-2 w-75 mx-auto">
                                 <a href="{{ route('services.show', $service->id) }}" class="fs-3 fw-bold text-decoration-none link">{{ $service->title }}</a>
+                            </div>
+                            <div>
                                 <img src="{{ url('storage/'.$service->image) }}" class="project-image" alt="Obrazek Serwis">
-                                <div class="">
-                                    {{ $service->description }}
-                                </div>
+
+                            </div>
+                            <div class="fs-5">
+                                {{ $service->description }}
                             </div>
                         </div>
                     @empty

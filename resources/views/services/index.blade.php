@@ -9,7 +9,9 @@
         <div class="container p-4">
 
             <h1>Services</h1>
+            @auth
             <a href="{{ route('services.create') }}">Create New Service</a>
+            @endauth
             @if (session('success'))
             <p>{{ session('success') }}</p>
             @endif
@@ -18,10 +20,12 @@
                 <li>
                     <h2>{{ $service->title }}</h2>
                     <p>{{ $service->description }}</p>
-                    <p>Price: ${{ $service->price }}</p>
+                    <p>Price from: ${{ $service->min_price }} to ${{ $service->max_price }}</p>
                     @if ($service->image)
-                    <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" style="width: 100px;">
+                        <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" style="width: 100px;">
                     @endif
+
+                    @auth
                     <a href="{{ route('services.show', $service->id) }}">View</a>
                     <a href="{{ route('services.edit', $service->id) }}">Edit</a>
                     <form action="{{ route('services.destroy', $service->id) }}" method="POST" style="display: inline;">
@@ -29,6 +33,7 @@
                         @method('DELETE')
                         <button type="submit">Delete</button>
                     </form>
+                    @endauth
                 </li>
                 @endforeach
             </ul>

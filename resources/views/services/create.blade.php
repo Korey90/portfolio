@@ -20,8 +20,11 @@
                 <label for="image">Image:</label>
                 <input type="file" id="image" name="image">
                 <br>
-                <label for="price">Price:</label>
-                <input type="text" id="price" name="price" required>
+                <label for="price">Min Price:</label>
+                <input type="text" id="min_price" name="min_price" required>
+                <br>
+                <label for="price">Max Price:</label>
+                <input type="text" id="max_price" name="max_price" required>
                 <br>
                 <button type="submit">Create</button>
             </form>

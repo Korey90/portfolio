@@ -12,7 +12,7 @@ class WelcomeController extends Controller
 {
     public function index(){
 
-        $skills = $skills = Skill::orderBy('name', 'asc')->get();
+        $skills = Skill::orderBy('name', 'asc')->get();
         $projects = Project::with('techniques')->get();
         $services = Service::all();
         return view('welcome', ['skills' => $skills, 'projects' => $projects, 'services' => $services]);

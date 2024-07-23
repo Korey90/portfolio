@@ -24,8 +24,11 @@
                     <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" style="width: 100px;">
                 @endif
                 <br>
-                <label for="price">Price:</label>
-                <input type="text" id="price" name="price" value="{{ $service->price }}" required>
+                <label for="price">Min Price:</label>
+                <input type="text" id="min_price" name="min_price" value="{{ $service->min_price }}" required>
+                <br>
+                <label for="price">Max Price:</label>
+                <input type="text" id="max_price" name="max_price" value="{{ $service->max_price }}" required>
                 <br>
                 <button type="submit">Update</button>
             </form>

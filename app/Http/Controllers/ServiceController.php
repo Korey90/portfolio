@@ -24,7 +24,8 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'price' => 'required|numeric',
+            'min_price' => 'required|numeric',
+            'max_price' => 'required|numeric',
         ]);
 
         $serviceData = $request->except('image');
@@ -54,7 +55,9 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'price' => 'required|numeric',
+            'min_price' => 'required|numeric',
+            'max_price' => 'required|numeric',
+
         ]);
 
         $serviceData = $request->except('image');
