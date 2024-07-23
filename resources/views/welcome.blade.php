@@ -46,7 +46,7 @@
                     @forelse($projects as $project)
                         <li>
                             <div class="project-item">
-                                <a href="/sklep" class="fs-3 fw-bold text-decoration-none link">{{ $project->name }}</a>
+                                <a href="{{ $project->end_point }}" class="fs-3 fw-bold text-decoration-none link">{{ $project->name }}</a>
                                 <img src="{{ url('storage/'.$project->image) }}" class="project-image" alt="Obrazek Sklep">
                                 <div class="project-text bg-dark">
                                     Wykożystane Tehnologie:
@@ -66,6 +66,29 @@
                     @endforelse
 
                 </ul>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Usługi</h2>
+                <div class="row g-2">
+                    @forelse($services as $service)
+                        <div class="w-50">
+                            <div class="">
+                                <a href="{{ route('services.show', $service->id) }}" class="fs-3 fw-bold text-decoration-none link">{{ $service->title }}</a>
+                                <img src="{{ url('storage/'.$service->image) }}" class="project-image" alt="Obrazek Serwis">
+                                <div class="">
+                                    {{ $service->description }}
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        Nic tu nie ma.
+                    @endforelse
+
+                </div>
+
             </div>
         </section>
 

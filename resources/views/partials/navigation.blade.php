@@ -7,16 +7,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">O mnie</a>
+                        <a class="nav-link" href="{{ url('/#about') }}">O mnie</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Umiejętności</a>
+                        <a class="nav-link" href="{{ url('/#skills') }}">Umiejętności</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projekty</a>
+                        <a class="nav-link" href="{{ url('/#projects') }}">Projekty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Kontakt</a>
+                        <a class="nav-link" href="{{ url('/#services') }}">Usługi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/#contact') }}">Kontakt</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
