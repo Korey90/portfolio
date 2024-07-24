@@ -6,6 +6,10 @@
 
 
     @section('content')
+        <div class="container p-4">
+
+        
+        </div>
         
 
 

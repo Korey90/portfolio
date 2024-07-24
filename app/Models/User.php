@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function roles(): belongsToMany
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }
