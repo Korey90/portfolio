@@ -16,7 +16,7 @@
             @if ($service->image)
                 <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" style="width: 100px;">
             @endif
-            <a href="{{ route('services.index') }}">Back to list</a>
+            <a href="{{ url('/#services') }}">Back</a>
     
         </div>
 
