@@ -11,6 +11,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserRolePermissionController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
 //Middlewares
 use App\Http\Middleware\CheckRole;
@@ -20,7 +22,8 @@ Route::get('/', [WelcomeController::class, 'index']);
 
 
 
-
+Route::resource('categories', CategoryController::class);
+Route::resource('posts', PostController::class);
 Route::resource('services', ServiceController::class);
 Route::resource('skills', SkillController::class);
 Route::resource('techniques', TechniqueController::class);
