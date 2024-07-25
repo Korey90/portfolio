@@ -7,25 +7,33 @@
 
     @section('content')
     <div class="container p-4">
+        @include('partials.adminNavigation')
+        <div class="d-flex justify-content-between">
+            <h2>Create New Skill</h2>
+            <a href="{{ route('skills.index') }}" class="link">Back to list</a>
+        </div>
 
-        <h1>Create Skill</h1>
         <form action="{{ route('skills.store') }}" method="POST">
             @csrf
-            <label for="name">Name:</label>
+            <label class="form-label" for="name">Name:</label>
             <input type="text" id="name" class="form-control" name="name" required>
             <br>
-            <label for="proficiency">Proficiency: %</label>
+            <label class="form-label" for="proficiency">Proficiency: %</label>
             <input type="number" id="proficiency" min="0" max="100" step="1" class="form-control" name="proficiency" required>
             <br>
-            <label for="icon">Icon:</label>
+            <label class="form-label" for="icon">Icon:</label>
             <input type="text" id="icon" class="form-control" name="icon" required>
             <br>
-            <label for="active">Active:</label>
-            <input type="checkbox" id="active" class="form-check" name="active" value="1" checked>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="active" value="1" id="active">
+              <label class="form-check-label" for="active">
+                Tick to make it visible
+              </label>
+            </div>
+
             <br>
-            <button type="submit">Save</button>
+            <button type="submit" class="btn btn-success">Save</button>
         </form>
-        <a href="{{ route('skills.index') }}">Back to list</a>
         
     </div>
     @endsection

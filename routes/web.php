@@ -19,6 +19,9 @@ use App\Http\Middleware\CheckRole;
  
 
 Route::get('/', [WelcomeController::class, 'index']);
+Route::get('/service/{name}/show', [WelcomeController::class, 'service'])->name('service');
+Route::get('/blog', [WelcomeController::class, 'blog'])->name('blog');
+Route::get('/blog/{name}', [WelcomeController::class, 'post'])->name('post');
 
 
 
@@ -28,7 +31,6 @@ Route::resource('services', ServiceController::class);
 Route::resource('skills', SkillController::class);
 Route::resource('techniques', TechniqueController::class);
 Route::resource('projects', ProjectController::class);
-
 
 
     // Roles

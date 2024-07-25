@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -41,13 +43,13 @@
 
     @include('partials.footer')
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
 
 
     <script>
-
+/*
         // Tworzenie nowego elementu <link> do załadowania CSS
         var link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -78,7 +80,7 @@
         
             setInterval(checkDevTools, 1000);
         })();
-
+*/
     </script>
 </body>
 </html>

@@ -7,6 +7,8 @@
 
     @section('content')
         <div class="container p-4">
+        @include('partials.adminNavigation')
+        <h2>Users & Roles</h2>
         <div class="card">
             <div class="card-body">
                 @if(session('success'))

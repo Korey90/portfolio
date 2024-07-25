@@ -7,6 +7,14 @@
 
 
     @section('content')
+
+    <section>
+        <div class="alert alert-danger">
+            <h2>UWAGA</h2>
+
+            Aktualnie strona jest w fazie wykonczeniowej!
+        </div>
+    </section>
         
         <section id="about" class="about">
             <div class="container">
@@ -73,11 +81,11 @@
         <section id="services" class="services py-5" style="background-color: #E8E8E8;">
             <div class="container">
                 <h2 class="section-title py-3" data-aos="fade-up">Usługi</h2>
-                <div class="row row-cols-3 g-2">
+                <div class="row row-cols-2 row-cols-md-3  g-2">
                     @forelse($services as $service)
                         <div class="col mb-4" data-aos="fade-up">
-                            <div class="text-center px-2 w-75 mx-auto">
-                                <a href="{{ route('services.show', $service->id) }}" class="fs-3 fw-bold text-decoration-none link">{{ $service->title }}</a>
+                            <div class="text-center px-5 border">
+                                <a href="{{ route('service', str_replace(' ', '-', $service->title)) }}" class="fs-3 fw-bold text-decoration-none link">{{ $service->title }}</a>
                             </div>
                             <div>
                                 <img src="{{ url('storage/'.$service->image) }}" class="project-image" alt="Obrazek Serwis" data-aos="fade-up">

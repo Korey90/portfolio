@@ -7,6 +7,8 @@
 
     @section('content')
         <div class="container p-4">
+        @include('partials.adminNavigation')
+        <h2>Create Permission</h2>
         <div class="card w-50 mx-auto">
             <div class="card-body">
                 @if(session('success'))

@@ -7,28 +7,31 @@
 
     @section('content')
         <div class="container p-4">
+        @include('partials.adminNavigation')
+            <div class="d-flex justify-content-between">
+                <h2>Create Service</h2>
+                <a href="{{ route('services.index') }}" class="link">Back to list</a>
+            </div>
 
-            <h1>Create Service</h1>
             <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <label class="form-label" for="title">Title:</label>
+                <input class="form-control" type="text" id="title" name="title" required>
                 <br>
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
+                <label class="form-label" for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description" required></textarea>
                 <br>
-                <label for="image">Image:</label>
-                <input type="file" id="image" name="image">
+                <label class="form-label"for="image">Image:</label>
+                <input class="form-control"type="file" id="image" name="image">
                 <br>
-                <label for="price">Min Price:</label>
-                <input type="text" id="min_price" name="min_price" required>
+                <label class="form-label" for="price">Min Price:</label>
+                <input class="form-control" type="text" id="min_price" name="min_price" required>
                 <br>
-                <label for="price">Max Price:</label>
-                <input type="text" id="max_price" name="max_price" required>
+                <label class="form-label" for="price">Max Price:</label>
+                <input class="form-control" type="text" id="max_price" name="max_price" required>
                 <br>
-                <button type="submit">Create</button>
+                <button class="btn btn-success" type="submit">Create</button>
             </form>
-            <a href="{{ route('services.index') }}">Back to list</a>
     
         </div>
 
