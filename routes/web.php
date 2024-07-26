@@ -20,8 +20,8 @@ use App\Http\Middleware\CheckRole;
 
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/service/{name}/show', [WelcomeController::class, 'service'])->name('service');
-Route::get('/blog', [WelcomeController::class, 'blog'])->name('blog');
-Route::get('/blog/{name}', [WelcomeController::class, 'post'])->name('post');
+Route::get('/ks-blog', [WelcomeController::class, 'blog'])->name('blog');
+Route::get('/ks-blog/{name}', [WelcomeController::class, 'post'])->name('post');
 
 
 

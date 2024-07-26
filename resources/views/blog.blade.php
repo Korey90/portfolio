@@ -21,7 +21,7 @@
             @forelse($posts as $post)
                 <div class="row mb-4">
                     <div class="col-md-2">
-                    <img src="{{ url('storage/'.$post->image) }}" class="img-thumbnail" alt="{{ $post->title }}">
+                        <img src="{{ url('storage/'.$post->image) }}" class="img-thumbnail" alt="{{ $post->title }}">
                     </div>
                     <div class="col-md">
                         <h2 class="fw-bold"><a class="nav-link link-dark" href="{{ route('post', str_replace(' ', '-', $post->title)) }}">{{ $post->title }}</a></h2>

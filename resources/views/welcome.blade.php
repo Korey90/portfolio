@@ -18,12 +18,12 @@
         
         <section id="about" class="about">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">O mnie</h2>
+                <h2 class="section-title" data-aos="fade-up">ABOUT ME</h2>
                 <div class="content">
                     <img src="img/face.jpg" alt="Konrad Szczepanik" data-aos="fade-right">
                     <div class="text">
-                        <p data-aos="fade-left">Witaj! Mam na imię Konrad i mam 34 lata. Od najmłodszych lat pasjonuję się komputerami. W wieku 10 lat stworzyłem swoją pierwszą stronę internetową, kiedy design opierał się jeszcze na tabelkach. Ukończyłem Technikum nr 9 w Łodzi, zdobywając specjalizację w zakresie "sieci i zarządzania siecią". Web development to moja pasja, a cała moja wiedza w tym zakresie wynika z osobistej determinacji i chęci poznawania nowych technologii webowych.</p>
-                        <p data-aos="fade-left">Posiadam biegłą znajomość języków programowania takich jak HTML(5), CSS, JavaScript, PHP i Python. Dodatkowo, doskonale orientuję się w technologiach takich jak TypeScript oraz Sass. Najczęściej korzystam z frameworków takich jak Laravel, jQuery i Bootstrap. Mam również doświadczenie w korzystaniu z usług Google, w tym Google Analytics, Google Ads, Google Tag Manager, Google Script i wielu innych.</p>
+                        <p data-aos="fade-left">Hello! My name is Konrad, and I am 34 years old. I've been passionate about computers since a young age. At the age of 10, I created my first website, back when design was based on tables. I graduated from Technical School No. 9 in Łódź, specializing in "networking and network management." Web development is my passion, and all my knowledge in this field comes from personal determination and a desire to learn new web technologies.</p>
+                        <p data-aos="fade-left">I have a proficient knowledge of programming languages such as HTML(5), CSS, JavaScript, PHP, and Python. Additionally, I am well-versed in technologies like TypeScript and Sass. I frequently use frameworks such as Laravel, jQuery, and Bootstrap. I also have experience with Google services, including Google Analytics, Google Ads, Google Tag Manager, Google Script, and many others.</p>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
 
         <section id="skills" class="skills">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Umiejętności</h2>
+                <h2 class="section-title" data-aos="fade-up">SKILLS</h2>
                 <ul>
                     @forelse($skills as $skill)
                         <li data-aos="fade-up">
@@ -50,15 +50,17 @@
 
         <section id="projects" class="projects">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Projekty</h2>
-                <ul>
+                <h2 class="section-title" data-aos="fade-up">PROJECTS</h2>
+                <div class="row">
                     @forelse($projects as $project)
-                        <li data-aos="fade-up">
+                        <div class="col-md-4 mb-4" data-aos="fade-up">
                             <div class="project-item">
-                                <a href="{{ $project->end_point }}" class="fs-3 fw-bold text-decoration-none link">{{ $project->name }}</a>
+                                <h3 class="text-center p-2">
+                                    <a href="{{ $project->end_point }}" class="fw-bold nav-link link-dark">{{ $project->name }}</a>
+                                </h3>
                                 <img src="{{ url('storage/'.$project->image) }}" class="project-image" alt="Obrazek Sklep">
                                 <div class="project-text bg-dark">
-                                    Wykożystane Tehnologie:
+                                    Used in project:
                                     <ul class="bg-dark">
                                         @forelse($project->techniques as $technique)
                                             <li class="bg-dark text-light">{{ $technique->name }}</li>
@@ -69,22 +71,22 @@
                                     {{ $project->description }}
                                 </div>
                             </div>
-                        </li>
+                        </div>
                     @empty
                         Nic tu nie ma.
                     @endforelse
 
-                </ul>
+                </div>
             </div>
         </section>
 
         <section id="services" class="services py-5" style="background-color: #E8E8E8;">
             <div class="container">
-                <h2 class="section-title py-3" data-aos="fade-up">Usługi</h2>
-                <div class="row row-cols-2 row-cols-md-3  g-2">
+                <h2 class="section-title py-3" data-aos="fade-up">SERVICES</h2>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3  g-2">
                     @forelse($services as $service)
-                        <div class="col mb-4" data-aos="fade-up">
-                            <div class="text-center px-5 border">
+                        <div class="col-md mb-4" data-aos="fade-up">
+                            <div class="text-center px-0 px-md-5">
                                 <a href="{{ route('service', str_replace(' ', '-', $service->title)) }}" class="fs-3 fw-bold text-decoration-none link">{{ $service->title }}</a>
                             </div>
                             <div>
@@ -106,12 +108,12 @@
 
         <section id="contact" class="contact">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Kontakt</h2>
+                <h2 class="section-title" data-aos="fade-up">CONTACT ME</h2>
                 <form action="mailto:korey1910@wp.pl" method="post">
-                    <input type="text" class="form-control" name="name" placeholder="Imię i nazwisko" required data-aos="fade-up">
-                    <input type="email" class="form-control" name="email" placeholder="Adres email" required data-aos="fade-up">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Twoja wiadomość" required data-aos="fade-up"></textarea>
-                    <button type="submit" class="btn btn-custom" data-aos="fade-up">Wyślij</button>
+                    <input type="text" class="form-control" name="name" placeholder="Your name" required data-aos="fade-up">
+                    <input type="email" class="form-control" name="email" placeholder="Address email" required data-aos="fade-up">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required data-aos="fade-up"></textarea>
+                    <button type="submit" class="btn btn-custom" data-aos="fade-up">Mail Me</button>
                 </form>
             </div>
         </section>

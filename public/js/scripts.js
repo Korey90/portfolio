@@ -1,36 +1,24 @@
-    // Funkcja do animowania paska postępu
-    function animateProgressBar(progressElement) {
-        var finalWidth = parseFloat(progressElement.querySelector('.progress-bar').getAttribute('data-final-width'));
-        var progressBar = progressElement.querySelector('.progress-bar');
-        var progress = 0;
-        var speed = 15; // Szybkość animacji (im mniejsza wartość, tym szybciej)
-        var increment = finalWidth / speed;
-    
-        var interval = setInterval(function() {
-            if (progress >= finalWidth) {
-                clearInterval(interval);
-            } else {
-                progress += increment;
-                progressBar.style.width = progress + '%';
+function animateProgressBar(e){var t=parseFloat(e.querySelector(".progress-bar").getAttribute("data-final-width")),r=e.querySelector(".progress-bar"),s=0,a=15,o=t/a,n=setInterval(function(){s>=t?clearInterval(n):(s+=o,r.style.width=s+"%")},10)}document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("li").forEach(function(e){e.addEventListener("mouseenter",function(){e.classList.add("hover"),animateProgressBar(e)}),e.addEventListener("mouseleave",function(){e.classList.remove("hover");var t=e.querySelector(".progress-bar");t.style.width="0%"})})});var link=document.createElement("link");link.rel="stylesheet",link.type="text/css",link.href="https://unpkg.com/aos@2.3.1/dist/aos.css",document.head.appendChild(link),AOS.init();
+/*
+        (function() {
+            var devtools = false;
+            var threshold = 160;
+            
+            function checkDevTools() {
+                var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+                var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+                if (widthThreshold || heightThreshold) {
+                    if (!devtools) {
+                        devtools = true;
+                        console.log('WYPAD!!!');
+                        alert('Narzędzia deweloperskie są otwarte! Za chwile zostaniesz Wyjebany z tąd w pizdu!');
+                        window.location.href = 'https://www.google.com'; // Ścieżka do strony z komunikatem o braku internetu
+                    }
+                } else {
+                    devtools = false;
+                }
             }
-        }, 10); // Interwał czasowy
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        var progressElements = document.querySelectorAll('li');
-    
-        progressElements.forEach(function(progressElement) {
-            progressElement.addEventListener('mouseenter', function() {
-                progressElement.classList.add('hover');
-                animateProgressBar(progressElement);
-            });
-    
-            progressElement.addEventListener('mouseleave', function() {
-                progressElement.classList.remove('hover');
-                var progressBar = progressElement.querySelector('.progress-bar');
-                progressBar.style.width = '0%'; // Zresetowanie paska postępu po opuszczeniu kursorem
-            });
-        });
-    });
-
-    
+        
+            setInterval(checkDevTools, 1000);
+        })();
+*/
