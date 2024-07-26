@@ -67,6 +67,7 @@ return [
 
     'timezone' => env('APP_TIMEZONE', 'UTC'),
 
+
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
@@ -77,6 +78,12 @@ return [
     | set to any locale for which you plan to have translation strings.
     |
     */
+
+    'locales' => [
+        'en' => 'English',
+        'pl' => 'Polski',
+        'pt' => 'Portuguese',
+    ],
 
     'locale' => env('APP_LOCALE', 'en'),
 

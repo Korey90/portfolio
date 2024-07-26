@@ -13,12 +13,15 @@
             <h2>UWAGA</h2>
 
             Aktualnie strona jest w fazie wykonczeniowej!
+            <br>
+            <p>{{ __('auth.password') }}</p>
+            {{   App::getLocale() }}
         </div>
     </section>
         
         <section id="about" class="about">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">ABOUT ME</h2>
+                <h2 class="section-title" data-aos="fade-up">{{ __('menu.about-me') }}</h2>
                 <div class="content">
                     <img src="img/face.jpg" alt="Konrad Szczepanik" data-aos="fade-right">
                     <div class="text">
@@ -31,7 +34,7 @@
 
         <section id="skills" class="skills">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">SKILLS</h2>
+                <h2 class="section-title" data-aos="fade-up">{{ __('menu.skills') }}</h2>
                 <ul>
                     @forelse($skills as $skill)
                         <li data-aos="fade-up">
@@ -50,7 +53,7 @@
 
         <section id="projects" class="projects">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">PROJECTS</h2>
+                <h2 class="section-title" data-aos="fade-up">{{ __('menu.projects') }}</h2>
                 <div class="row">
                     @forelse($projects as $project)
                         <div class="col-md-4 mb-4" data-aos="fade-up">
@@ -82,7 +85,7 @@
 
         <section id="services" class="services py-5" style="background-color: #E8E8E8;">
             <div class="container">
-                <h2 class="section-title py-3" data-aos="fade-up">SERVICES</h2>
+                <h2 class="section-title py-3" data-aos="fade-up">{{ __('menu.services') }}</h2>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3  g-2">
                     @forelse($services as $service)
                         <div class="col-md mb-4" data-aos="fade-up">
@@ -108,12 +111,12 @@
 
         <section id="contact" class="contact">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">CONTACT ME</h2>
+                <h2 class="section-title" data-aos="fade-up">{{ __('menu.contact') }}</h2>
                 <form action="mailto:korey1910@wp.pl" method="post">
-                    <input type="text" class="form-control" name="name" placeholder="Your name" required data-aos="fade-up">
-                    <input type="email" class="form-control" name="email" placeholder="Address email" required data-aos="fade-up">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required data-aos="fade-up"></textarea>
-                    <button type="submit" class="btn btn-custom" data-aos="fade-up">Mail Me</button>
+                    <input type="text" class="form-control" name="name" placeholder="{{ __('contact.name') }}" required data-aos="fade-up">
+                    <input type="email" class="form-control" name="email" placeholder="{{ __('contact.email') }}" required data-aos="fade-up">
+                    <textarea class="form-control" name="message" rows="5" placeholder="{{ __('contact.message') }}" required data-aos="fade-up"></textarea>
+                    <button type="submit" class="btn btn-custom" data-aos="fade-up">{{ __('contact.submit') }}</button>
                 </form>
             </div>
         </section>

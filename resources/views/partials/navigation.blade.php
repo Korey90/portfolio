@@ -7,22 +7,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link link-light" href="{{ url('/#about') }}">ABOUT ME</a>
+                        <a class="nav-link link-light" href="{{ url('/#about') }}">{{ __('menu.about-me') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-light" href="{{ url('/#skills') }}">SKILLS</a>
+                        <a class="nav-link link-light" href="{{ url('/#skills') }}">{{ __('menu.skills') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-light" href="{{ url('/#projects') }}">PROJECTS</a>
+                        <a class="nav-link link-light" href="{{ url('/#projects') }}">{{ __('menu.projects') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-light" href="{{ url('/#services') }}">SERVICES</a>
+                        <a class="nav-link link-light" href="{{ url('/#services') }}">{{ __('menu.services') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-light" href="{{ route('blog') }}">BLOG</a>
+                        <a class="nav-link link-light" href="{{ route('blog') }}">{{ __('menu.blog') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-light" href="{{ url('/#contact') }}">CONTACT</a>
+                        <a class="nav-link link-light" href="{{ url('/#contact') }}">{{ __('menu.contact') }}</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -32,11 +32,12 @@
                         Language
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item px-1" href="#"><img src="img/pl.png" alt="polish" style="width:auto; height:20px;"> Polish</a></li>
-                        <li><a class="dropdown-item px-1" href="#"><img src="img/en.png" alt="polish" style="width:auto; height:20px;"> English</a></li>
-                        <li><a class="dropdown-item px-1" href="#"><img src="img/pr.png" alt="polish" style="width:auto; height:20px;"> Portugese</a></li>
+                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'pl']) }}"><img src="img/pl.png" alt="polish" style="width:auto; height:20px;"> Polish</a></li>
+                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'en']) }}"><img src="img/en.png" alt="english" style="width:auto; height:20px;"> English</a></li>
+                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'pt']) }}"><img src="img/pr.png" alt="portuguese" style="width:auto; height:20px;"> Portuguese</a></li>
                     </ul>
                 </li>
+
                 @auth
                     <li class="nav-item">
                         <a class="nav-link link-light" href="{{ route('dashboard') }}">Dashboard</a>

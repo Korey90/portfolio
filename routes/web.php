@@ -13,15 +13,21 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserRolePermissionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LanguageController;
 
 //Middlewares
 use App\Http\Middleware\CheckRole;
- 
+use App\Http\Middleware\SetLocale;
+
+use Illuminate\Http\Request;
+
+
+Route::get('lang/{locale}', [LanguageController::class, 'change'])->name('lang.change');
 
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/service/{name}/show', [WelcomeController::class, 'service'])->name('service');
 Route::get('/ks-blog', [WelcomeController::class, 'blog'])->name('blog');
-Route::get('/ks-blog/{name}', [WelcomeController::class, 'post'])->name('post');
+Route::get('/ks-blog/{slug}', [WelcomeController::class, 'post'])->name('post');
 
 
 

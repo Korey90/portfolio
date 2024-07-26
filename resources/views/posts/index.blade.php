@@ -22,6 +22,7 @@
                         <th>Image</th>
                         <th>Title</th>
                         <th>Categoty</th>
+                        <th>Status</th>
                         <th>Created at</th>
                         <th>Actions</th>
                     </tr>
@@ -31,15 +32,16 @@
                         <tr>
                             <td>
                                 @if($post->image)
-                                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" style="width: 100px;">
+                                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title_pl }}" style="width: 100px;">
                                 @else
                                     Brak obrazka
                                 @endif
                             </td>
                             <td>
-                                <a class="nav-link link-dark" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
+                                <a class="nav-link link-dark" href="{{ route('posts.show', $post->id) }}">{{ $post->title_pl }}</a>
                             </td>
                             <td>{{ $post->category->name }}</td>
+                            <td>{{ ($post->active) ? 'aktywne' : 'nie aktywne'}}</td>
                             <td>{{ $post->created_at }}</td>
                             <td>
                                 <a class="btn btn-primary" href="{{ route('posts.edit', $post->id) }}">Edit</a>

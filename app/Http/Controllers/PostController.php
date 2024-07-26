@@ -14,6 +14,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with('category')->get();
+        
         return view('posts.index', compact('posts'));
     }
 
@@ -26,9 +27,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'content' => 'required|string',
+            'title_pl' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+            'title_pt' => 'required|string|max:255',
+            'description_pl' => 'required|string',
+            'description_en' => 'required|string',
+            'description_pt' => 'required|string',
+            'content_pl' => 'required|string',
+            'content_en' => 'required|string',
+            'content_pt' => 'required|string',
+            'active' => 'boolean',
+            'slug' => 'string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
         ]);
@@ -61,9 +70,17 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'content' => 'required|string',
+            'title_pl' => 'required|string|max:255',
+            'title_en' => 'required|string|max:255',
+            'title_pt' => 'required|string|max:255',
+            'description_pl' => 'required|string',
+            'description_en' => 'required|string',
+            'description_pt' => 'required|string',
+            'content_pl' => 'required|string',
+            'content_en' => 'required|string',
+            'content_pt' => 'required|string',
+            'active' => 'boolean',
+            'slug' => 'string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
         ]);

@@ -24,7 +24,7 @@
                         <img src="{{ url('storage/'.$post->image) }}" class="img-thumbnail" alt="{{ $post->title }}">
                     </div>
                     <div class="col-md">
-                        <h2 class="fw-bold"><a class="nav-link link-dark" href="{{ route('post', str_replace(' ', '-', $post->title)) }}">{{ $post->title }}</a></h2>
+                        <h2 class="fw-bold"><a class="nav-link link-dark" href="{{ route('post', ['slug' => $post->slug]) }}">{{ $post->title }}</a></h2>
                         <hr class="">
                         <div class="d-flex justify-content-between">
                             <div class="">
@@ -33,7 +33,7 @@
                             <div class=""><b>Created at:</b> {{ $post->created_at}}</div>
                         </div>
                         <p class="fs-5">{!! $post->description !!}</p>
-                        <a href="{{ route('post', str_replace(' ', '-', $post->title)) }}" class="nav-link link-primary">Read More..</a>
+                        <a href="{{ route('post', ['slug' => $post->slug]) }}" class="nav-link link-primary">Read More..</a>
                     </div>
                 </div>
                 

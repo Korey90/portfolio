@@ -6,7 +6,7 @@
 
     @section('content')
         <div class="container p-4">
-            <h1>{{ $post->title }}</h1>
+            <h1>{{ $post->title.'_'.app()->currentLocale }}</h1>
             <p><strong>Category:</strong> {{ $post->category->name }}</p>
             @if ($post->image)
                 <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" style="width: 100px;">

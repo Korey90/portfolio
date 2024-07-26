@@ -22,3 +22,22 @@ function animateProgressBar(e){var t=parseFloat(e.querySelector(".progress-bar")
             setInterval(checkDevTools, 1000);
         })();
 */
+
+function stringToSlug(str) {
+    // Przekształcenie do małych liter
+    str = str.toLowerCase();
+
+    // Zamiana znaków specjalnych na odpowiadające im litery (np. ą na a, ć na c, itp.)
+    str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    // Usunięcie wszystkich znaków, które nie są literami, cyframi lub myślnikami
+    str = str.replace(/[^a-z0-9 -]/g, "");
+
+    // Zamiana spacji i powtarzających się myślników na pojedynczy myślnik
+    str = str.replace(/\s+/g, '-').replace(/-+/g, '-');
+
+    // Usunięcie myślników na początku i końcu, jeśli występują
+    str = str.replace(/^[-]+|[-]+$/g, "");
+
+    return str;
+  }
