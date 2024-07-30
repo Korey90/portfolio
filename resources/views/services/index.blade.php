@@ -34,15 +34,24 @@
                 @foreach ($services as $service)
                     <tr>
                         <td>
-                            <a class="link" href="{{ route('services.show', $service->id ) }}">{{ $service->title }}</a>
+                            <a class="link mb-2" href="{{ route('services.show', $service->id ) }}">
+                               Szczegóły <i class="bi bi-eye"></i>
+                            </a>
+
+                            <p>
+                                @foreach($service->translations as $title)
+                                    <img src="{{ url('img/'.$title->locale.'.png') }}" style="height: 20px;" alt="{{ $title->locale }}"> - {{ $title->title }} <br>
+                                @endforeach
+                            </p>
                         </td>
                         <td>
                             <img src="{{ url('storage/'.$service->image) }}" style="max-width: 150px;" alt="{{ $service->title }}">
                         </td>
                         <td>
                             <p class="w-75">
-
-                                {{ $service->description }}
+                                @foreach($service->translations as $description)
+                                <img src="{{ url('img/'.$description->locale.'.png') }}" style="height: 20px;" alt="{{ $description->locale }}"> - {{ $description->description }} <br>
+                                @endforeach
                             </p>
                         </td>
                         <td>

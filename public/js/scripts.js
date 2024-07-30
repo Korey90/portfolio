@@ -41,3 +41,11 @@ function stringToSlug(str) {
 
     return str;
   }
+
+  $(document).ready(function() {
+    $('.slug').on('keyup', function(){
+              //console.log(stringToSlug(this.value));
+    return $('#slug').val(stringToSlug(this.value));
+    
+    });
+});

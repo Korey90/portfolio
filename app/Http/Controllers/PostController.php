@@ -56,6 +56,18 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $parsedown = new Parsedown();
+
+        $locale = app()->getLocale();
+        // Dynamiczne określenie kolumn na podstawie lokalizacji
+        $titleColumn = 'title_' . $locale;
+        $descriptionColumn = 'description_' . $locale;
+        $contentColumn = 'content_' . $locale;
+
+        //  $post = Post::where('slug', $slug)->firstOrFail();
+        $post = Post::select('id', $titleColumn . ' as title', $descriptionColumn . ' as description', $contentColumn . ' as content', 'slug', 'image', 'category_id', 'created_at', 'updated_at')
+        ->where('id', $post->id)
+        ->firstOrFail();
+
         $post->content = $parsedown->text($post->content);
         
         return view('posts.show', compact('post'));

@@ -10,10 +10,14 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
-        'image',
+        'slug',
         'min_price',
         'max_price',
+        'image',
     ];
+
+    public function translations()
+    {
+        return $this->hasMany(ServiceTranslation::class);
+    }
 }

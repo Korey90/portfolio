@@ -13,10 +13,22 @@
                 <a href="{{ route('services.index') }}" class="link">Back to list</a>
             </div>
 
-            <h2>{{ $service->title }}</h2>
-            <p>{{ $service->description }}</p>
-            <p>Min Price: ${{ $service->min_price }}</p>
-            <p>Max Price: ${{ $service->max_price }}</p>
+            <h2>Tytuł:</h2>
+            <p class="fs-5">
+                @foreach($service->translations as $title)
+                    {{ $title->title }}, 
+                @endforeach
+            </p>
+            <h2>Opis:</h2>
+            @foreach($service->translations as $description)
+                <p class="fs-5">
+                   {{$description->locale}} - {{ $description->description }}, 
+                </p>
+            @endforeach
+            <h2>Cena:</h2>
+            <p>Min Price: £{{ $service->min_price }}</p>
+            <p>Max Price: £{{ $service->max_price }}</p>
+            <h2>Ilustracja:</h2>
             @if ($service->image)
                 <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" style="width: 100px;">
             @endif

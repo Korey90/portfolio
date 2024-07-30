@@ -8,25 +8,20 @@
 
     @section('content')
 
-    <section>
-        <div class="alert alert-danger">
-            <h2>UWAGA</h2>
-
-            Aktualnie strona jest w fazie wykonczeniowej!
+        <div class="alert alert-warning w-50 mx-auto my-2 text-center" role="alert">
+            <h2>{{ __('welcome.notice') }}</h2>
+            <p>{{ __('welcome.notice_message') }}</p>
             <br>
-            <p>{{ __('auth.password') }}</p>
-            {{   App::getLocale() }}
         </div>
-    </section>
+
         
         <section id="about" class="about">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">{{ __('menu.about-me') }}</h2>
                 <div class="content">
-                    <img src="img/face.jpg" alt="Konrad Szczepanik" data-aos="fade-right">
+                    <img src="{{ url('storage/'.$aboutMe->photo) }}" alt="Konrad Szczepanik" data-aos="fade-right" class="aos-init aos-animate">
                     <div class="text">
-                        <p data-aos="fade-left">Hello! My name is Konrad, and I am 34 years old. I've been passionate about computers since a young age. At the age of 10, I created my first website, back when design was based on tables. I graduated from Technical School No. 9 in Łódź, specializing in "networking and network management." Web development is my passion, and all my knowledge in this field comes from personal determination and a desire to learn new web technologies.</p>
-                        <p data-aos="fade-left">I have a proficient knowledge of programming languages such as HTML(5), CSS, JavaScript, PHP, and Python. Additionally, I am well-versed in technologies like TypeScript and Sass. I frequently use frameworks such as Laravel, jQuery, and Bootstrap. I also have experience with Google services, including Google Analytics, Google Ads, Google Tag Manager, Google Script, and many others.</p>
+                        <p data-aos="fade-left">{!! $aboutMe->content !!}</p>
                     </div>
                 </div>
             </div>
@@ -51,53 +46,61 @@
             </div>
         </section>
 
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">{{ __('menu.projects') }}</h2>
-                <div class="row">
-                    @forelse($projects as $project)
-                        <div class="col-md-4 mb-4" data-aos="fade-up">
-                            <div class="project-item">
-                                <h3 class="text-center p-2">
-                                    <a href="{{ $project->end_point }}" class="fw-bold nav-link link-dark">{{ $project->name }}</a>
-                                </h3>
-                                <img src="{{ url('storage/'.$project->image) }}" class="project-image" alt="Obrazek Sklep">
-                                <div class="project-text bg-dark">
-                                    Used in project:
-                                    <ul class="bg-dark">
-                                        @forelse($project->techniques as $technique)
-                                            <li class="bg-dark text-light">{{ $technique->name }}</li>
-                                        @empty
-                                            Nic tu nie ma.
-                                        @endforelse
-                                    </ul>
-                                    {{ $project->description }}
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        Nic tu nie ma.
-                    @endforelse
 
+<section id="projects" class="projects bg-secondary">
+    <div class="container">
+        <h2 class="section-title text-center mb-5 text-light" data-aos="fade-up">{{ __('menu.projects') }}</h2>
+        <div class="row" data-aos="fade-up">
+            @foreach($projects as $project)
+                <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                    <div class="card h-100 w-100 border-0">
+                        <div class="project-item">
+                            <img src="{{ url('storage/'.$project->image) }}" class="project-image card-img-top" alt="{{ $project->title }} image">
+                        </div>
+                        <div class="card-body d-flex flex-column position-relative">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title fw-bold">{{ $project->name }}</h5>
+                                <a class="link-dark" data-bs-toggle="collapse" href="#{{ str_replace(' ', '', $project->name) }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="bi bi-info-circle"></i>
+                                </a>
+                            </div>
+                            <p class="card-text flex-grow-1">{{ $project->description }}</p>
+                            <div class="collapse w-100 position-absolute top-50 start-0 aa" id="{{ str_replace(' ', '', $project->name) }}">
+                              <div class="card card-body mb-2 border-0 shadow-sm">
+                              <ul class="list-group">
+                                    @forelse($project->techniques as $technique)
+                                        <li class="list-group-item">{{ $technique->name }}</li>
+                                    @empty
+                                        Nic tu nie ma.
+                                    @endforelse
+                                </ul>
+                              </div>
+                            </div> 
+                            <a href="{{ $project->end_point }}" class="btn btn-primary mt-auto" target="_blank">{{ __('welcome.project_preview') }}</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 
         <section id="services" class="services py-5" style="background-color: #E8E8E8;">
             <div class="container">
                 <h2 class="section-title py-3" data-aos="fade-up">{{ __('menu.services') }}</h2>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3  g-2">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3  g-4">
                     @forelse($services as $service)
                         <div class="col-md mb-4" data-aos="fade-up">
                             <div class="text-center px-0 px-md-5">
-                                <a href="{{ route('service', str_replace(' ', '-', $service->title)) }}" class="fs-3 fw-bold text-decoration-none link">{{ $service->title }}</a>
+                                <a href="{{ route('service', $service->slug) }}" class="fs-3 fw-bold text-decoration-none link">{{ $service->translations->first()->title }}</a>
                             </div>
                             <div>
                                 <img src="{{ url('storage/'.$service->image) }}" class="project-image" alt="Obrazek Serwis" data-aos="fade-up">
 
                             </div>
-                            <div class="fs-5">
-                                {{ $service->description }}
+                            <div class="fs-5" style="text-align: justify;">
+                                {{ $service->translations->first()->description }}
                             </div>
                         </div>
                     @empty
@@ -108,6 +111,7 @@
 
             </div>
         </section>
+
 
         <section id="contact" class="contact">
             <div class="container">

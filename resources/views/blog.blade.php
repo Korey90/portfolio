@@ -30,10 +30,10 @@
                             <div class="">
                                 <span class="badge rounded-pill text-bg-primary">{{ $post->category->name }}</span>
                             </div>
-                            <div class=""><b>Created at:</b> {{ $post->created_at}}</div>
+                            <div class=""><b>{{ __('blog.created_at') }}</b> {{ $post->created_at}}</div>
                         </div>
                         <p class="fs-5">{!! $post->description !!}</p>
-                        <a href="{{ route('post', ['slug' => $post->slug]) }}" class="nav-link link-primary">Read More..</a>
+                        <a href="{{ route('post', ['slug' => $post->slug]) }}" class="nav-link link-primary">{{ __('blog.read_more') }}</a>
                     </div>
                 </div>
                 

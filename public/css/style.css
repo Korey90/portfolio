@@ -51,14 +51,14 @@ body {
 .skills, .projects, .contact {
     padding: 60px 0;
 }
-.skills ul, .projects ul {
+.skills ul {
     list-style-type: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.skills ul li, .projects ul li {
+.skills ul li {
     background-color: #fff;
     margin: 10px;
     padding: 15px;
@@ -124,9 +124,6 @@ border: 2px solid #fff; /* Ramka biała */
 transition: border-color 0.5s ease-in-out; /* Animacja zmiany koloru ramki */
 }
 
-.project-item:hover {
-border-color: #ccc; /* Zmiana koloru ramki po najechaniu kursorem */
-}
 
 .project-image {
 width: 100%;
@@ -135,30 +132,23 @@ transition: transform 1.5s ease-in-out; /* Animacja transformacji */
 }
 
 .project-item .project-image:hover {
-transform: translateY(-100%); /* Przesunięcie obrazka w dół o 50% jego wysokości po najechaniu kursorem */
+transform: translateY(-40%); /* Przesunięcie obrazka w dół o 50% jego wysokości po najechaniu kursorem */
 
 }
-.project-text {
-position: absolute;
-bottom: 0;
-left: 0;
-width: 100%;
-padding: 10px;
-margin: 0;
-background-color: rgba(0, 0, 0, 0.8); /* Przezroczyste tło */
-color: #fff; /* Kolor tekstu */
-transform: translateY(100%); /* Początkowe ukrycie tekstu na dole */
-transition: transform 1s ease-in-out; /* Animacja transformacji */
-}
 
-.project-item:hover .project-text {
+.project-item:hover {
 transform: translateY(0); /* Przesunięcie tekstu do góry po najechaniu kursorem */
 }
+
 .link{
 color:#282828;
 text-decoration: none;
 }
 .link:hover{
 color: #28a745;
+}
+
+.aa{
+    z-index: 999;
 }
 

@@ -32,9 +32,9 @@
                         Language
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'pl']) }}"><img src="img/pl.png" alt="polish" style="width:auto; height:20px;"> Polish</a></li>
-                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'en']) }}"><img src="img/en.png" alt="english" style="width:auto; height:20px;"> English</a></li>
-                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'pt']) }}"><img src="img/pr.png" alt="portuguese" style="width:auto; height:20px;"> Portuguese</a></li>
+                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'pl']) }}"><img src="{{ url('img/pl.png') }}" alt="polish" style="width:auto; height:20px;"> Polish</a></li>
+                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'en']) }}"><img src="{{ url('img/en.png') }}" alt="english" style="width:auto; height:20px;"> English</a></li>
+                        <li><a class="dropdown-item px-1" href="{{ route('lang.change', ['locale' => 'pt']) }}"><img src="{{ url('img/pt.png') }}" alt="portuguese" style="width:auto; height:20px;"> Portuguese</a></li>
                     </ul>
                 </li>
 

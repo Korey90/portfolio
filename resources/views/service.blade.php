@@ -1,6 +1,6 @@
 <x-app-layout>
-    @section('title', 'Service - '.$service->title)
-    @section('meta_description', $service->description)
+    @section('title', 'Service - '.$service->translations->first()->title)
+    @section('meta_description', $service->translations()->first()->description)
     @section('meta_keywords', 'słowo kluczowe1, słowo kluczowe2')
     @section('page_title', $service->title)
 
@@ -13,9 +13,8 @@
                 </div>
                 <div class="col-md">
                     <div class="row">
-
                         <div class="col-md-6 text-center">
-                            <h2 class="fw-bold">{{ $service->title }}</h2>
+                            <h2 class="fw-bold">{{ $service->translations->first()->title }}</h2>
                             <p class="text-muted">Service:</p>
                         </div>
                         <div class="col-md-6 text-center">
@@ -23,7 +22,7 @@
                             <p class="text-muted">Pricing from:</p>
                         </div>
                         <div class="col-md-12 text-center">
-                            <h2 class="fw-bold">{{ $service->description }}</h2>
+                            <h2 class="fw-bold">{{ $service->translations->first()->description }}</h2>
                             <p class="text-muted">Description:</p>
                         </div>
                     </div>

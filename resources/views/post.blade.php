@@ -17,10 +17,10 @@
 
             <div class="d-flex justify-content-between text-start">
                 <div class="">
-                    <b>Category:</b> <span class="badge rounded-pill text-bg-primary">{{ $post->category->name }}</span>
+                    <b>{{ __('blog.category') }}</b> <span class="badge rounded-pill text-bg-primary">{{ $post->category->name }}</span>
                 </div>
                 <div class="">
-                    <b>Created at:</b> {{ $post->created_at}}
+                    <b>{{ __('blog.created_at') }}</b> {{ $post->created_at}}
                 </div>
             </div>
         </div>

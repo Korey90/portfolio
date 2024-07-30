@@ -4,29 +4,33 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateServicesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->string('image')->nullable();
             $table->decimal('min_price', 8, 2);
             $table->decimal('max_price', 8, 2);
+            $table->string('image')->nullable();
             $table->timestamps();
+        });
+
+        Schema::create('service_translations', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('service_id')->constrained()->onDelete('cascade');
+            $table->string('locale')->index();
+            $table->string('title');
+            $table->text('description');
+            $table->timestamps();
+
+            $table->unique(['service_id', 'locale']);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
+        Schema::dropIfExists('service_translations');
         Schema::dropIfExists('services');
     }
-};
+}
