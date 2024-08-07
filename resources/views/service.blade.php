@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-md-6 text-center">
                             <h2 class="fw-bold">£{{ $service->min_price }}</h2>
-                            <p class="text-muted">Pricing from:</p>
+                            <p class="text-muted">Cena od:</p>
                         </div>
                         <div class="col-md-12 text-center">
                             <h2 class="fw-bold">{{ $service->translations->first()->description }}</h2>
@@ -30,7 +30,25 @@
                 </div>
             </div>
             <hr>
-            <span>Here we will list all the works within the scope of this service. WORK IN PROGRESS</span>
+            <div class="row g-4">
+                <h2>Oferta Zawiera:</h2>
+                @forelse($service->works->where('locale', app()->getLocale() ) as $work)
+                    <div class="col-md-3">
+                        <h4>{{ $work->title }}</h4>    
+                        <p>{{ $work->description }}</p>
+                        <p>{{ $work->details }}</p>
+                        <p>Cena od: £{{ $work->min_price }} - {{ $work->max_price }}</p>
+                        <p>{{ $work->service_interval }}</p>
+                        @forelse($work->process as $process)
+                            <li>{{$process->title}}</li>
+                        @empty
+                            Brak Procesów
+                        @endforelse
+                    </div>
+                @empty
+                    Sekcja w trakcie uzupełniania
+                @endforelse
+            </div>
      
             
         </div>

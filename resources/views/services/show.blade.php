@@ -33,6 +33,31 @@
                 <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" style="width: 100px;">
             @endif
     
+   
+                            <ul class="list-group">
+                                @forelse($service->works->where('locale', app()->getLocale() ) as $work)
+                                    <li class="list-group-item">
+                                        <h3>{{ $work->title }}</h3>
+                                        <p>{{ $work->description }}</p>
+                                        <p>Min Price: {{ $work->min_price }} Max Price: {{ $work->max_price }}</p>
+                                        <p>Interval: {{ implode(',', $work->service_intervals) }}</p>
+                                        <ul>
+                                            <h3>Work process</h3>
+                                            @forelse($work->process as $process)
+                                                <li>
+                                                    <h5 class="fw-bold">{{ $process->title }}</h5>
+                                                    <p>{{ $process->description }}</p>
+                                                </li>
+                                            @empty
+                                                Brak Procesów
+                                            @endforelse
+                                        </ul>
+                                    </li>
+                                @empty
+                                    Brak rekordów w tym jezyku
+                                @endforelse
+                            </ul>
+                        
         </div>
 
     @endsection

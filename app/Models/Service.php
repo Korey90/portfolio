@@ -20,4 +20,9 @@ class Service extends Model
     {
         return $this->hasMany(ServiceTranslation::class);
     }
+
+    public function works()
+    {
+        return $this->hasMany(Work::class);
+    }
 }

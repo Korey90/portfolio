@@ -21,7 +21,7 @@
                 <div class="card mb-3" style="">
                   <div class="row g-0">
                     <div class="col-md-4">
-                      <img src="{{ url('storage/', $row->photo) }}" class="img-fluid rounded-start" alt="obrazek">
+                      <img src="{{ url('storage/'.$row->photo) }}" class="img-fluid rounded-start" alt="obrazek">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">

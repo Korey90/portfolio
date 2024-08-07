@@ -140,6 +140,15 @@ transform: translateY(-40%); /* Przesunięcie obrazka w dół o 50% jego wysoko�
 transform: translateY(0); /* Przesunięcie tekstu do góry po najechaniu kursorem */
 }
 
+.fixed-background {
+    background-image: url('/img/sdo39sjeid834j6.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*filter: grayscale(50%);*/
+}
+
 .link{
 color:#282828;
 text-decoration: none;

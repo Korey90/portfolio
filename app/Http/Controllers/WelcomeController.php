@@ -27,7 +27,7 @@ class WelcomeController extends Controller
         $currentLocale = $this->currentLocale;
 
         $skills = Skill::orderBy('name', 'asc')->get();
-        $projects = Project::with('techniques')->get();
+        $projects = Project::with('techniques')->orderBy('created_at', 'desc')->get();
         $aboutMe = AboutMe::where('locale', $currentLocale)->firstOrFail();
 
         $services = Service::with(['translations' => function ($query) use ($currentLocale) {

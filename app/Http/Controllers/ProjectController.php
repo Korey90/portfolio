@@ -41,6 +41,7 @@ class ProjectController extends Controller
 
         $project = Project::create($projectData);
         $project->techniques()->attach($request->input('technique_ids'));
+        
         return redirect()->route('projects.index')->with('success', 'Project created successfully.');
     }
 

@@ -1,8 +1,9 @@
 <x-app-layout>
-    @section('title', 'Strona Główna')
-    @section('meta_description', 'Opis strony głównej')
-    @section('meta_keywords', 'słowo kluczowe1, słowo kluczowe2')
-    @section('page_title', 'Witamy na naszej stronie')
+    @section('title', 'Welcome Page')
+    @section('meta_description', 'Web developer portfolio. Projects using HTML, CSS, JavaScript, React, Laravel, and more. Contact me to discuss collaboration.')
+    @section('meta_keywords', 'web developer, HTML, CSS, JavaScript, React, Laravel, web development, responsive design, front-end development, back-end development, UI/UX design')
+    @section('og_image', asset('img/background.jpg'))
+    
    
 
 
@@ -47,7 +48,7 @@
         </section>
 
 
-<section id="projects" class="projects bg-secondary">
+<section id="projects" class="projects  fixed-background">
     <div class="container">
         <h2 class="section-title text-center mb-5 text-light" data-aos="fade-up">{{ __('menu.projects') }}</h2>
         <div class="row" data-aos="fade-up">

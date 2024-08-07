@@ -15,7 +15,6 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AboutMeController;
-use App\Http\Controllers\WorkController;
 
 //Middlewares
 use App\Http\Middleware\CheckRole;
@@ -39,7 +38,6 @@ Route::resource('services', ServiceController::class);
 Route::resource('skills', SkillController::class);
 Route::resource('techniques', TechniqueController::class);
 Route::resource('projects', ProjectController::class);
-Route::resource('works', WorkController::class);
 
 
     // Roles

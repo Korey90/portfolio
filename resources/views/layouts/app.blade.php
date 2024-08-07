@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="author" content="Konrad Szczepanik">
+    
     <meta name="description" content="@yield('meta_description', 'Domyślny opis strony')">
     <meta name="keywords" content="@yield('meta_keywords', 'słowo kluczowe1, słowo kluczowe2')">
 
-    <title>@yield('title', 'Domyślny Tytuł Strony')</title>
+    <meta property="og:image" content="@yield('og_image')">
+
+    <title>{{ config('app.name') }} - @yield('title', 'Domyślny Tytuł Strony')</title>
 
 
     <!-- bootstrap css -->

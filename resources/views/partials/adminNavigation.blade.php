@@ -11,8 +11,16 @@
   <li class="nav-item">
     <a class="nav-link link-light" href="{{ route('projects.index') }}">Projects</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link link-light" href="{{ route('services.index') }}">Services</a>
+  <li class="nav-item dropdown">
+    <a class="nav-link link-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Services
+    </a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="{{ route('services.index') }}">Services List</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="{{ route('works.create') }}">Add Service Works</a></li>
+      <li><a class="dropdown-item" href="{{ route('permissions.index') }}">Add Service Process</a></li>
+    </ul>
   </li>
   <li class="nav-item dropdown">
     <a class="nav-link link-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,5 +43,8 @@
   </li>
   <li class="nav-item">
     <a class="nav-link link-light" href="{{ route('posts.index') }}">Blog</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link link-light" href="/phpmyadmin" target="_blank">PhpMyAdmin</a>
   </li>
 </ul>

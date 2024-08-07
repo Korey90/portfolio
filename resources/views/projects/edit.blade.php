@@ -36,6 +36,9 @@
                     <label class="form-label" for="image">Image:</label>
                     <input class="form-control" type="file" id="image" name="image">
                     <br>
+                    <label class="form-label" for="end_point">End Point:</label>
+                    <input class="form-control" value="{{ $project->end_point }}" type="text" id="end_point" name="end_point">
+                    <br>
                     <label class="form-label" for="technique_ids">Techniques:</label>
                     <select class="form-select" size="12" id="technique_ids" name="technique_ids[]" multiple required>
                         @foreach ($techniques as $technique)
