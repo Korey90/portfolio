@@ -6,26 +6,120 @@ body {
 .header {
     background-color: #6c757d;
     color: #fff;
-    padding: 100px 0;
-    text-align: center;
-    background-image: url('/img/background.jpg');
+    min-height: 100vmin;
     background-size: cover;
     background-position: center;
 }
 .header h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     margin-bottom: 10px;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
 }
 .header p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
+
+    /* Przykładowy kod CSS dla gradientu przekątnego */
+    .gradient-diagonal {
+        background: linear-gradient(-135deg, #f6963c, #110080, #6650f9); /* Przykład gradientu od różowego do pomarańczowego */
+        height: 100vh; /* Wysokość tła na pełny ekran */
+        width: 100vw; /* Szerokość tła na pełny ekran */
+        /* Dodatkowe opcje stylizacji */
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        color: #e83f1d;
+    }
+    .button-gradient {
+        background: linear-gradient(135deg, #110080, #6650f9);
+        border: none;
+        border-radius: 15rem;
+        color: #fff;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+    }
+    
+    .button-gradient:hover {
+        background: linear-gradient(135deg, #6650f9, #f6613c);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .button-gradient:active {
+        transform: translateY(2px);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .button-gradient:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(102, 80, 249, 0.4);
+    }
+
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.2);
+            opacity: 0.7;
+        }
+    }
+
+    #element i {
+        animation: pulse 2s infinite;
+        transition: transform 0.3s ease;
+        font-size: 2rem; /* Możesz dostosować rozmiar ikony */
+        color: #e83f1d; /* Kolor ikony, dostosuj do swoich potrzeb */
+    }
+
+
+    .gradient-border {
+        position: relative;
+        display: inline-block;
+        transform: rotate(6deg);
+        border-radius: 10px; /* Opcjonalne zaokrąglone rogi */
+        padding: 4px; /* Odstęp między obrazkiem a gradientem */
+        background: linear-gradient(135deg, #f6613c, #110080, #6650f9); /* Gradientowe obramowanie */
+    }
+    
+    .gradient-border img {
+        display: block;
+        border-radius: 6px; /* Dopasowanie do zaokrąglonych rogów */
+        width: 100%; /* Ustawienie rozmiaru obrazka */
+        height: auto;
+        background-color: #fff; /* Tło pod obrazkiem */
+    }
+    
+    .gradient-border::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        background: linear-gradient(135deg, #f6613c, #110080, #6650f9);
+        border-radius: 12px; /* Dopasowanie do zaokrąglonych rogów */
+        z-index: -1;
+    }
+    
+ 
+    
+
+    
 .section-title {
     text-align: center;
     margin-bottom: 40px;
     font-size: 2.4rem;
-    color: #333;
+    color: #444;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
@@ -139,6 +233,33 @@ transform: translateY(-40%); /* Przesunięcie obrazka w dół o 50% jego wysoko�
 .project-item:hover {
 transform: translateY(0); /* Przesunięcie tekstu do góry po najechaniu kursorem */
 }
+
+
+.newsletter-section {
+    background-color: #f8f9fa;
+  }
+
+  .newsletter-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .newsletter-description {
+    font-size: 1.1rem;
+    color: #6c757d;
+  }
+
+  .newsletter-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .newsletter-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+
 
 .fixed-background {
     background-image: url('/img/sdo39sjeid834j6.jpg');

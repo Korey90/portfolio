@@ -16,6 +16,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\AboutMeController;
 use App\Http\Controllers\WorkController;
+use App\Http\Controllers\NewsletterController;
 
 //Middlewares
 use App\Http\Middleware\CheckRole;
@@ -23,6 +24,19 @@ use App\Http\Middleware\SetLocale;
 
 use Illuminate\Http\Request;
 
+
+
+
+
+// Newsletter routes
+Route::get('/newsletter/subscribe', [NewsletterController::class, 'showSubscriptionForm'])
+     ->name('newsletter.subscribe');
+
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribeToNewsletter'])
+     ->name('newsletter.subscribe.store');
+
+Route::post('/newsletter/unsubscribe', [NewsletterController::class, 'unsubscribeFromNewsletter'])
+     ->name('newsletter.unsubscribe');
 
 Route::get('lang/{locale}', [LanguageController::class, 'change'])->name('lang.change');
 

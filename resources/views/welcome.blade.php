@@ -9,11 +9,17 @@
 
     @section('content')
 
-        <div class="alert alert-warning w-50 mx-auto my-2 text-center" role="alert">
-            <h2>{{ __('welcome.notice') }}</h2>
-            <p>{{ __('welcome.notice_message') }}</p>
-            <br>
+    <section id="" class="about">
+        <div class="container">
+
+            
+            <div class="alert alert-warning w-50 mx-auto my-2 text-center d-block">
+                <h2><i class="bi bi-exclamation-octagon-fill"></i> {{ __('welcome.notice') }}</h2>
+                <p>{{ __('welcome.notice_message') }}</p>
+                <br>
+            </div>
         </div>
+    </section>
 
         
         <section id="about" class="about">
@@ -47,6 +53,28 @@
             </div>
         </section>
 
+        <!-- NEWSLETTER -->
+        <section class="newsletter-section bg-light py-5">
+            <div class="container py-5">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-4 d-none d-md-block" data-aos="fade-right">
+                        <img src="{{ url('img/envelopenewsletter.png') }}" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-8 text-center" id="formContainer" data-aos="fade-left">
+                        <h2 class="section-title mb-3">{{ __('welcome.newsletter_head') }}</h2>
+                        <p class="newsletter-description mb-4">{{ __('welcome.newsletter_subtext') }}</p>
+                        <form class="newsletter-form d-flex justify-content-center w-75 mx-auto" method="POST" id="newsletter-form">
+                            @csrf
+                            <div class="input-group">
+                                <input class="btn btn-primary newsletter-button" id="newsletter-button" type="submit" value="{{ __('welcome.newsleter_submit') }}">
+                                <input type="email" name="email" id="newsletter-email" class="form-control newsletter-input" placeholder="{{ __('welcome.newsletter_placeholder') }}" aria-label="Adres e-mail" aria-describedby="newsletter-button">
+                            </form>
+                        </div>
+                    </div>
+                    <div id="newsletter-message" class="fs-2 text-center"></div>
+                </div>
+            </div>
+        </section>
 
 <section id="projects" class="projects  fixed-background">
     <div class="container">
@@ -117,7 +145,10 @@
         <section id="contact" class="contact">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">{{ __('menu.contact') }}</h2>
-                <form action="mailto:korey1910@wp.pl" method="post">
+                <div class="alert alert-info">
+                <i class="bi bi-exclamation-octagon-fill"></i> coming soon
+                </div>
+                <form action="" method="post">
                     <input type="text" class="form-control" name="name" placeholder="{{ __('contact.name') }}" required data-aos="fade-up">
                     <input type="email" class="form-control" name="email" placeholder="{{ __('contact.email') }}" required data-aos="fade-up">
                     <textarea class="form-control" name="message" rows="5" placeholder="{{ __('contact.message') }}" required data-aos="fade-up"></textarea>
@@ -127,9 +158,45 @@
         </section>
 
         <script>
-         AOS.init();
-    </script>
+            AOS.init();
+
+            $(document).ready(function() {
+            
+                var newsletterForm = $('#newsletter-form');
+                var newsletterMessage = $('#newsletter-message');
+            
+                var formContainer = $('#formContainer');
+                newsletterForm.submit(function(event) {
+                    event.preventDefault();
+                
+                    var email = $('#newsletter-email').val();
+                
+                    $.ajax({
+                        type: 'POST',
+                        url: '/newsletter/subscribe',
+                        data: JSON.stringify({ email: email }),
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(data) {
+                            formContainer.addClass('d-none');
+                            newsletterMessage.text(data.message);
+                            newsletterMessage.fadeIn('ease-in');
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('Error:', xhr.responseJSON.message);
+                            var errorMessage = xhr.responseJSON.message || 'An unexpected error occurred. Please try again later.';
+                            newsletterMessage.text(errorMessage);
+                            newsletterMessage.addClass('alert alert-danger d-block');
+                            newsletterMessage.fadeIn('ease-in');
+                        }
+                    });
+                });
+            });
+
+        </script>
+
     @endsection
-
-
 </x-app-layout>
